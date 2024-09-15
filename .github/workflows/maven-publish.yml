@@ -1,0 +1,28 @@
+on:
+  push:
+    branches: [main]
+  pull_request: 
+    branches: [main]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build with Maven
+      run: mvn -B package -DskipTests --file pom.xml
+
+    - name: Render deploy
+    - uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: srv-crjkphij1k6c73fncgqg
+        api-key: rnd_3B42BQ6PKpt0r3I23rv6hxGeS8Jv
