@@ -22,7 +22,7 @@ jobs:
       run: mvn -B package -DskipTests --file pom.xml
 
     - name: Render deploy
-    - uses: johnbeynon/render-deploy-action@v0.0.8
+      uses: johnbeynon/render-deploy-action@v0.0.8
       with:
         service-id: srv-crjkphij1k6c73fncgqg
         api-key: rnd_3B42BQ6PKpt0r3I23rv6hxGeS8Jv
